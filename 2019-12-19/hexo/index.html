@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lenstime.tk">
-  <title>Hexo使用(一) | Blog</title>
+  <title>Hexo使用 | Blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="为什么选择 Hexo + GitHub Pages 搭建Blog轻量：没有麻烦的配置，使用标记语 Markdown ，无需自己搭建服务器免费：免费托管 Github 仓库通用：是目前比较流行的方案，社区活跃，不断创新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用(一)">
+<meta property="og:title" content="Hexo使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;lenstime.tk&#x2F;2019-12-19&#x2F;hexo&#x2F;index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="为什么选择 Hexo + GitHub Pages 搭建Blog轻量：没有麻烦的配置，使用标记语 Markdown ，无需自己搭建服务器免费：免费托管 Github 仓库通用：是目前比较流行的方案，社区活跃，不断创新">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https:&#x2F;&#x2F;lenstime.tk&#x2F;img&#x2F;20190620154954.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lenstime.tk&#x2F;img&#x2F;20191223162235.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lenstime.tk&#x2F;img&#x2F;20191223162755.png">
 <meta property="article:published_time" content="2019-12-19T05:44:40.000Z">
-<meta property="article:modified_time" content="2019-12-20T07:58:52.082Z">
+<meta property="article:modified_time" content="2019-12-23T08:30:17.570Z">
 <meta property="article:author" content="Lens">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="GitHub">
@@ -180,7 +182,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Hexo使用(一)
+      Hexo使用
     </h1>
   
 
@@ -206,7 +208,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">400字</span>
+      <span class="post-count">470字</span>
     </span>
   </span>
 
@@ -233,7 +235,7 @@
 <h2 id="一、Hexo、GitHub-Pages-介绍"><a href="#一、Hexo、GitHub-Pages-介绍" class="headerlink" title="一、Hexo、GitHub Pages 介绍"></a>一、Hexo、GitHub Pages 介绍</h2><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 一个静态网站托管服务，用来管理你的一个GitHub 库的个人的、组织的、或者项目的页面（免费），当然白嫖肯定是有限制的。</p>
 <p>Github Pages 限制：<br>发布的网站不能超过1 GB。<br>网站每月100GB的带宽限制。<br>每小时小于10个版本。</p>
-<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">安装Git</a>、<a href="https://nodejs.org/en/" target="_blank" rel="noopener">安装Node.js</a>、<a href="https://hexo.io/docs/" target="_blank" rel="noopener">安装Hexo</a>推荐按照这个步骤安装<br>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<h2 id="二、环境搭建-amp-运行"><a href="#二、环境搭建-amp-运行" class="headerlink" title="二、环境搭建&amp;运行"></a>二、环境搭建&amp;运行</h2><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">安装Git</a>、<a href="https://nodejs.org/en/" target="_blank" rel="noopener">安装Node.js</a>、<a href="https://hexo.io/docs/" target="_blank" rel="noopener">安装Hexo</a>推荐按照这个步骤安装<br>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>安装Hexo后，运行以下命令以初始化blog到定义的路径中。</p>
 <p>切换到安装目录下</p>
@@ -249,6 +251,11 @@
 <p>hexo generate 可简写 hexo g<br>hexo server 可简写 hexo s</p>
 <p>启动服务后可以在浏览器中输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 来预览</p>
 <p>hexo预览<br><img src="/img/20190620154954.png" alt=""></p>
+<h2 id="hexo模板使用"><a href="#hexo模板使用" class="headerlink" title="hexo模板使用"></a>hexo模板使用</h2><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo模板页面</a>挑选一款自己喜欢的主题</p>
+<p>例如<br><img src="/img/20191223162235.png" alt=""><br>找到源码并clone下来，将根目录下的_config.yml里的theme将设置修改为ayer。</p>
+<p>如果要预览 运行 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g -- 生成静态页面 </span><br><span class="line">hexo s   -- 启动服务</span><br></pre></td></tr></table></figure>
+<p><img src="/img/20191223162755.png" alt=""></p>
 
     
 
@@ -263,13 +270,13 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https:/lenstime.tk/2019-12-19/hexo/" title="Hexo使用(一)" target="_blank">https:/lenstime.tk/2019-12-19/hexo/</a>
+          <a href="https:/lenstime.tk/2019-12-19/hexo/" title="Hexo使用" target="_blank">https:/lenstime.tk/2019-12-19/hexo/</a>
         </li>
         
         <li>
           <strong>版权声明： </strong>
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+          本博客所有文章除特别声明外，转载请注明出处！
         </li>
         
       </ul>
