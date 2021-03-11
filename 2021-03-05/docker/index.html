@@ -21,19 +21,23 @@
     var CONFIG = {"hostname":"lenstime.tk","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="一、什么是Docker Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。 Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。 容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://lenstime.tk/2019-12-19/hello-world/index.html">
+<meta property="og:title" content="零基础docker入门">
+<meta property="og:url" content="http://lenstime.tk/2021-03-05/docker/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="一、什么是Docker Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。 Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。 容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-19T03:11:54.730Z">
-<meta property="article:modified_time" content="2019-12-19T05:54:05.928Z">
+<meta property="og:image" content="http://lenstime.tk/img/202103111.png">
+<meta property="og:image" content="http://lenstime.tk/img/2021031116.png">
+<meta property="article:published_time" content="2021-03-05T07:49:21.000Z">
+<meta property="article:modified_time" content="2021-03-11T10:10:20.395Z">
 <meta property="article:author" content="Lens">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lenstime.tk/img/202103111.png">
 
-<link rel="canonical" href="http://lenstime.tk/2019-12-19/hello-world/">
+<link rel="canonical" href="http://lenstime.tk/2021-03-05/docker/">
 
 
 <script id="page-configurations">
@@ -46,7 +50,7 @@
   };
 </script>
 
-  <title>Hello World | Blog</title>
+  <title>零基础docker入门 | Blog</title>
   
 
 
@@ -151,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://lenstime.tk/2019-12-19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://lenstime.tk/2021-03-05/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/20322044.jpg">
@@ -164,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          零基础docker入门
         </h1>
 
         <div class="post-meta">
@@ -173,10 +177,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-19 11:11:54 / Modified: 13:54:05" itemprop="dateCreated datePublished" datetime="2019-12-19T11:11:54+08:00">2019-12-19</time>
+              <time title="Created: 2021-03-05 15:49:21" itemprop="dateCreated datePublished" datetime="2021-03-05T15:49:21+08:00">2021-03-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 18:10:20" itemprop="dateModified" datetime="2021-03-11T18:10:20+08:00">2021-03-11</time>
+              </span>
 
           
   
@@ -187,8 +197,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2019-12-19/hello-world/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019-12-19/hello-world/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021-03-05/docker/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021-03-05/docker/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -203,21 +213,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <h2 id="一、什么是Docker"><a href="#一、什么是Docker" class="headerlink" title="一、什么是Docker"></a>一、什么是Docker</h2><p><img align="left" width="300px" src="/img/202103111.png"/> Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p>
+<p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+<p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
 <span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="为什么要写博客"><a href="#为什么要写博客" class="headerlink" title="为什么要写博客"></a>为什么要写博客</h3><p>记录自己学习、思考、总结的过程，提供持续学习的动力。</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>Docker官方文档也比较全,建议有能力的可以阅读<a target="_blank" rel="noopener" href="https://docs.docker.com">官方文档</a></p>
+</blockquote>
+<h2 id="Docker的应用场景"><a href="#Docker的应用场景" class="headerlink" title="Docker的应用场景"></a>Docker的应用场景</h2><ul>
+<li><p>Web 应用的自动化打包和发布。</p>
+</li>
+<li><p>自动化测试和持续集成、发布。</p>
+</li>
+<li><p>在服务型环境中部署和调整数据库或其他的后台应用。</p>
+</li>
+<li><p>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</p>
+</li>
+</ul>
+<h2 id="二、Docker三大组件"><a href="#二、Docker三大组件" class="headerlink" title="二、Docker三大组件"></a>二、Docker三大组件</h2><p>1.镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</p>
+<p>2.容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+<p>3.仓库（Repository）：仓库可看成一个代码控制中心，用来保存镜像。</p>
+<p><img src="/img/2021031116.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker 镜像(Images)</td>
+<td>Docker 镜像是用于创建 Docker 容器的模板，比如 Ubuntu 系统。</td>
+</tr>
+<tr>
+<td>Docker 容器(Container)</td>
+<td>容器是独立运行的一个或一组应用，是镜像运行时的实体。</td>
+</tr>
+<tr>
+<td>Docker Registry</td>
+<td>Docker 仓库用来保存镜像，可以理解为代码控制中的代码仓库。<br>Docker Hub(<a target="_blank" rel="noopener" href="https://hub.docker.com">https://hub.docker.com</a>) 提供了庞大的镜像集合供使用。<br>一个 Docker Registry 中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；每个标签对应一个镜像。<br>通常，一个仓库会包含同一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过 &lt;仓库名&gt;:&lt;标签&gt; 的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以 latest 作为默认标签。</td>
+</tr>
+</tbody></table>
+<h2 id="三、Docker安装-amp-基本操作"><a href="#三、Docker安装-amp-基本操作" class="headerlink" title="三、Docker安装&amp;基本操作"></a>三、Docker安装&amp;基本操作</h2><p>1.Docker安装<br>Docker可以安装在Windows、Linux、Mac等各个平台上。具体可以查看文档Install Docker。安装完成之后，可以查看Docker的版本信息：</p>
+<p>拿Centos 7举例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun <span class="comment">#国内源，速度更快</span></span><br></pre></td></tr></table></figure>
+<p>2.Docker基本操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br><span class="line"></span><br><span class="line">sudo systemctl start docker <span class="comment">#开启Docker</span></span><br><span class="line"></span><br><span class="line">sudo docker info <span class="comment">#验证是否安装成功</span></span><br><span class="line"></span><br><span class="line">docker search centos <span class="comment">#搜索容器</span></span><br><span class="line"></span><br><span class="line">docker pull centos <span class="comment">#下载容器</span></span><br><span class="line"></span><br><span class="line">docker images <span class="comment">#查看当前存在的镜像</span></span><br><span class="line"></span><br><span class="line">docker run -d --name mynginx nginx <span class="comment">#启动nginx镜像，没有会自动pull</span></span><br><span class="line"></span><br><span class="line">docker stop bfd094233f96 <span class="comment">#停止一个容器，根据容器 id 进行删除</span></span><br><span class="line"></span><br><span class="line">docker rm bfd094233f96 <span class="comment">#删除一个容器</span></span><br><span class="line"></span><br><span class="line">docker rmi bfd094233f96 <span class="comment">#移除一个镜像</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
     </div>
 
@@ -226,17 +270,20 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019-12-19/hexo/" rel="next" title="Hexo使用">
-      Hexo使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2019-12-19/hexo/" rel="prev" title="Hexo使用">
+      <i class="fa fa-chevron-left"></i> Hexo使用
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -302,7 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要写博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.2.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.3.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.4.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.5.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFDocker"><span class="nav-number">1.</span> <span class="nav-text">一、什么是Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">Docker的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Docker%E4%B8%89%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">二、Docker三大组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Docker%E5%AE%89%E8%A3%85-amp-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">三、Docker安装&amp;基本操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,9 +476,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://lenstime.tk/2019-12-19/hello-world/";
-    this.page.identifier = "2019-12-19/hello-world/";
-    this.page.title = "Hello World";
+    this.page.url = "http://lenstime.tk/2021-03-05/docker/";
+    this.page.identifier = "2021-03-05/docker/";
+    this.page.title = "零基础docker入门";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
