@@ -21,15 +21,21 @@
     var CONFIG = {"hostname":"lenstime.tk","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://lenstime.tk/archives/2021/index.html">
+  <meta name="description" content="一、Gitlab-Runner概述GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker部署Gitlab-Runner">
+<meta property="og:url" content="http://lenstime.tk/2021-03-12/gitlab-runner/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="一、Gitlab-Runner概述GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-12T07:50:22.000Z">
+<meta property="article:modified_time" content="2021-03-12T08:23:59.533Z">
 <meta property="article:author" content="Lens">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Gitlab-Runner">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://lenstime.tk/archives/2021/">
+<link rel="canonical" href="http://lenstime.tk/2021-03-12/gitlab-runner/">
 
 
 <script id="page-configurations">
@@ -37,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Blog</title>
+  <title>Docker部署Gitlab-Runner | Blog</title>
   
 
 
@@ -140,96 +146,108 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://lenstime.tk/2021-03-12/gitlab-runner/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/20322044.jpg">
+      <meta itemprop="name" content="Lens">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker部署Gitlab-Runner
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-12 15:50:22 / Modified: 16:23:59" itemprop="dateCreated datePublished" datetime="2021-03-12T15:50:22+08:00">2021-03-12</time>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 5 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021-03-12/gitlab-runner/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021-03-12/gitlab-runner/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-12T15:50:22+08:00"
-              content="2021-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021-03-12/gitlab-runner/" itemprop="url">
-            <span itemprop="name">Docker部署Gitlab-Runner</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-12T13:22:37+08:00"
-              content="2021-03-12">
-          03-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021-03-12/gitlab/" itemprop="url">
-            <span itemprop="name">Docker部署Gitlab</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-05T15:49:21+08:00"
-              content="2021-03-05">
-          03-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021-03-05/docker/" itemprop="url">
-            <span itemprop="name">零基础docker入门</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="一、Gitlab-Runner概述"><a href="#一、Gitlab-Runner概述" class="headerlink" title="一、Gitlab-Runner概述"></a>一、Gitlab-Runner概述</h2><p>GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/Gitlab-Runner/" rel="tag"># Gitlab-Runner</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021-03-12/gitlab/" rel="prev" title="Docker部署Gitlab">
+      <i class="fa fa-chevron-left"></i> Docker部署Gitlab
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -276,6 +294,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Gitlab-Runner%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、Gitlab-Runner概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -399,6 +418,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://lenstime.tk/2021-03-12/gitlab-runner/";
+    this.page.identifier = "2021-03-12/gitlab-runner/";
+    this.page.title = "Docker部署Gitlab-Runner";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-lenstime-tk-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
