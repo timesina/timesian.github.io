@@ -21,19 +21,23 @@
     var CONFIG = {"hostname":"lenstime.tk","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一、Gitlab-Runner概述GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。">
+  <meta name="description" content="Gitlab-Runner概述1、GitLab-CI GitLab-CI就是一套配合GitLab使用的持续集成系统（当然，还有其它的持续集成系统，同样可以配合GitLab使用，比如Jenkins）。而且GitLab8.0以后的版本是默认集成了GitLab-CI并且默认启用的。2、GitLab-Runner GitLab-Runner是配合GitLab-CI进行使用的。一般地，GitLab里面的每一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker部署Gitlab-Runner">
 <meta property="og:url" content="http://lenstime.tk/2021-03-12/gitlab-runner/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="一、Gitlab-Runner概述GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。">
+<meta property="og:description" content="Gitlab-Runner概述1、GitLab-CI GitLab-CI就是一套配合GitLab使用的持续集成系统（当然，还有其它的持续集成系统，同样可以配合GitLab使用，比如Jenkins）。而且GitLab8.0以后的版本是默认集成了GitLab-CI并且默认启用的。2、GitLab-Runner GitLab-Runner是配合GitLab-CI进行使用的。一般地，GitLab里面的每一">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lenstime.tk/img/20210312172709.png">
+<meta property="og:image" content="http://lenstime.tk/img/20210312175501.png">
+<meta property="og:image" content="http://lenstime.tk/img/161578750084.png">
 <meta property="article:published_time" content="2021-03-12T07:50:22.000Z">
-<meta property="article:modified_time" content="2021-03-12T08:23:59.533Z">
+<meta property="article:modified_time" content="2021-03-15T07:10:20.178Z">
 <meta property="article:author" content="Lens">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Gitlab-Runner">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lenstime.tk/img/20210312172709.png">
 
 <link rel="canonical" href="http://lenstime.tk/2021-03-12/gitlab-runner/">
 
@@ -175,10 +179,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-12 15:50:22 / Modified: 16:23:59" itemprop="dateCreated datePublished" datetime="2021-03-12T15:50:22+08:00">2021-03-12</time>
+              <time title="Created: 2021-03-12 15:50:22" itemprop="dateCreated datePublished" datetime="2021-03-12T15:50:22+08:00">2021-03-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 15:10:20" itemprop="dateModified" datetime="2021-03-15T15:10:20+08:00">2021-03-15</time>
+              </span>
 
           
   
@@ -205,7 +215,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、Gitlab-Runner概述"><a href="#一、Gitlab-Runner概述" class="headerlink" title="一、Gitlab-Runner概述"></a>一、Gitlab-Runner概述</h2><p>GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。</p>
+        <h2 id="Gitlab-Runner概述"><a href="#Gitlab-Runner概述" class="headerlink" title="Gitlab-Runner概述"></a>Gitlab-Runner概述</h2><p>1、GitLab-CI<br> GitLab-CI就是一套配合GitLab使用的持续集成系统（当然，还有其它的持续集成系统，同样可以配合GitLab使用，比如Jenkins）。而且GitLab8.0以后的版本是默认集成了GitLab-CI并且默认启用的。<br>2、GitLab-Runner<br> GitLab-Runner是配合GitLab-CI进行使用的。一般地，GitLab里面的每一个工程都会定义一个属于这个工程的软件集成脚本，用来自动化地完成一些软件集成工作。当这个工程的仓库代码发生变动时，比如有人push了代码，GitLab就会将这个变动通知GitLab-CI。这时GitLab-CI会找出与这个工程相关联的Runner，并通知这些Runner把代码更新到本地并执行预定义好的执行脚本。</p>
+<span id="more"></span>
+<p> 所以，GitLab-Runner就是一个用来执行软件集成脚本的东西。你可以想象一下：Runner就像一个个的工人，而GitLab-CI就是这些工人的一个管理中心，所有工人都要在GitLab-CI里面登记注册，并且表明自己是为哪个工程服务的。当相应的工程发生变化时，GitLab-CI就会通知相应的工人执行软件集成脚本。如下图所示：<br><img src="/img/20210312172709.png" alt=""></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner">Gitlab-Runner官方文档</a>，建议有能力的可以阅读官方文档</p>
+</blockquote>
+<h2 id="Docker中部署Runner"><a href="#Docker中部署Runner" class="headerlink" title="Docker中部署Runner"></a>Docker中部署Runner</h2><p>开始前请确保Docker已经安装,没有安装可以看<a href="/2021-03-05/docker/" title="之前文章">之前文章</a><br>要<code>gitlab-runner</code>在Docker容器中运行，您需要确保重新启动容器时配置不会丢失。为此，有两个选项，如下所述。</p>
+<h3 id="选项1：使用本地系统volume启动Runner容器"><a href="#选项1：使用本地系统volume启动Runner容器" class="headerlink" title="选项1：使用本地系统volume启动Runner容器"></a>选项1：使用本地系统volume启动Runner容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name gitlab-runner --restart always \</span><br><span class="line">   -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">   -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">   gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="选项2：使用Docker-volume启动Runner容器"><a href="#选项2：使用Docker-volume启动Runner容器" class="headerlink" title="选项2：使用Docker volume启动Runner容器"></a>选项2：使用Docker volume启动Runner容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.创建Docker volume</span></span><br><span class="line">docker volume create gitlab-runner-config</span><br><span class="line"><span class="comment"># 2.创建的volume启动GitLab Runner容器</span></span><br><span class="line">docker run -d --name gitlab-runner --restart always \</span><br><span class="line">   -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">   -v gitlab-runner-config:/etc/gitlab-runner \</span><br><span class="line">   gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>volume(文件集) 为了能够保存（持久化）数据以及共享容器间的数据，Docker提出了<a target="_blank" rel="noopener" href="https://docs.docker.com/storage/volumes">Volume</a>的概念。简单来说，Volume就是目录或者文件</p>
+</blockquote>
+<h2 id="注册Runner"><a href="#注册Runner" class="headerlink" title="注册Runner"></a>注册Runner</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it gitlab-runner bash</span><br><span class="line"><span class="comment"># 注册</span></span><br><span class="line">gitlab-runner register</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入Gitlab实例的地址"><a href="#输入Gitlab实例的地址" class="headerlink" title="输入Gitlab实例的地址"></a>输入Gitlab实例的地址</h3><p>地址是你手动设置Runner区域里面的URL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com )</span><br><span class="line">http://xxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入token"><a href="#输入token" class="headerlink" title="输入token"></a>输入token</h3><p>token是你手动设置Runner区域里面的令牌</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the gitlab-ci token <span class="keyword">for</span> this runner</span><br><span class="line">xxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入Runner的描述"><a href="#输入Runner的描述" class="headerlink" title="输入Runner的描述"></a>输入Runner的描述</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the gitlab-ci description <span class="keyword">for</span> this runner</span><br><span class="line">[hostname] my-runner</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入与Runner关联的标签"><a href="#输入与Runner关联的标签" class="headerlink" title="输入与Runner关联的标签"></a>输入与Runner关联的标签</h3><p>标签是为了让后期在CI脚本中指定选择某个或者多个Runner，这里我们设置他的标签为test，你们可以设置其他的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the gitlab-ci tags <span class="keyword">for</span> this runner (comma separated):</span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入Runner的执行器"><a href="#输入Runner的执行器" class="headerlink" title="输入Runner的执行器"></a>输入Runner的执行器</h3><p>由于我们都是基于Docker，所以这里选择执行器为Docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the executor: ssh, docker+machine, docker-ssh+machine, kubernetes, docker, parallels, virtualbox, docker-ssh, shell:</span><br><span class="line">docker</span><br></pre></td></tr></table></figure>
+<h3 id="设置执行器的版本"><a href="#设置执行器的版本" class="headerlink" title="设置执行器的版本"></a>设置执行器的版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the Docker image (eg. ruby:2.1):</span><br><span class="line">alpine:latest</span><br></pre></td></tr></table></figure>
+<p>退出容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>创建成功后，我们去GitLab中创建Runner的区域刷新就能看到了<br><img src="/img/20210312175501.png" alt=""></p>
+<h2 id="创建-Net-Core项目测试CI-CL"><a href="#创建-Net-Core项目测试CI-CL" class="headerlink" title="创建.Net Core项目测试CI/CL"></a>创建.Net Core项目测试CI/CL</h2><h3 id="在项目根目录创建-gitlab-ci-yml"><a href="#在项目根目录创建-gitlab-ci-yml" class="headerlink" title="在项目根目录创建.gitlab-ci.yml"></a>在项目根目录创建.gitlab-ci.yml</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">stages:</span><br><span class="line">  - deploy</span><br><span class="line">image: docker:latest</span><br><span class="line"><span class="comment"># 发布</span></span><br><span class="line">build-job:</span><br><span class="line">  stage: deploy</span><br><span class="line">  only:</span><br><span class="line">    - master</span><br><span class="line">  script:</span><br><span class="line">    - docker build -t <span class="built_in">test</span>:<span class="variable">$CI_PIPELINE_ID</span> .</span><br><span class="line">    - docker rm -f <span class="built_in">test</span></span><br><span class="line">    - docker run -d --name <span class="built_in">test</span> -p 5000:80 <span class="built_in">test</span>:<span class="variable">$CI_PIPELINE_ID</span> <span class="comment">#运行程序</span></span><br><span class="line">  tags:</span><br><span class="line">    - <span class="built_in">test</span></span><br><span class="line">  when: manual <span class="comment">#设置手动执行</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在项目根目录创建Dockerfile-构建镜像的文本文件"><a href="#在项目根目录创建Dockerfile-构建镜像的文本文件" class="headerlink" title="在项目根目录创建Dockerfile(构建镜像的文本文件)"></a>在项目根目录创建Dockerfile(构建镜像的文本文件)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS build</span><br><span class="line">WORKDIR /app</span><br><span class="line">EXPOSE 5000</span><br><span class="line">COPY . .</span><br><span class="line">ENTRYPOINT [<span class="string">&quot;dotnet&quot;</span>, <span class="string">&quot;test.dll&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="将项目提交到Gitlab仓库"><a href="#将项目提交到Gitlab仓库" class="headerlink" title="将项目提交到Gitlab仓库"></a>将项目提交到Gitlab仓库</h3><p>执行cil脚本，部署.Net Core项目<br><img src="/img/161578750084.png" alt=""></p>
 
     </div>
 
@@ -294,7 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Gitlab-Runner%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、Gitlab-Runner概述</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitlab-Runner%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Gitlab-Runner概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E4%B8%AD%E9%83%A8%E7%BD%B2Runner"><span class="nav-number">2.</span> <span class="nav-text">Docker中部署Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B91%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E7%B3%BB%E7%BB%9Fvolume%E5%90%AF%E5%8A%A8Runner%E5%AE%B9%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">选项1：使用本地系统volume启动Runner容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B92%EF%BC%9A%E4%BD%BF%E7%94%A8Docker-volume%E5%90%AF%E5%8A%A8Runner%E5%AE%B9%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">选项2：使用Docker volume启动Runner容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CRunner"><span class="nav-number">3.</span> <span class="nav-text">注册Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5Gitlab%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="nav-number">3.1.</span> <span class="nav-text">输入Gitlab实例的地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5token"><span class="nav-number">3.2.</span> <span class="nav-text">输入token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5Runner%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-number">3.3.</span> <span class="nav-text">输入Runner的描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8ERunner%E5%85%B3%E8%81%94%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.4.</span> <span class="nav-text">输入与Runner关联的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5Runner%E7%9A%84%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="nav-number">3.5.</span> <span class="nav-text">输入Runner的执行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%89%A7%E8%A1%8C%E5%99%A8%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-number">3.6.</span> <span class="nav-text">设置执行器的版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Net-Core%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95CI-CL"><span class="nav-number">4.</span> <span class="nav-text">创建.Net Core项目测试CI&#x2F;CL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA-gitlab-ci-yml"><span class="nav-number">4.1.</span> <span class="nav-text">在项目根目录创建.gitlab-ci.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BADockerfile-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E7%9A%84%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">在项目根目录创建Dockerfile(构建镜像的文本文件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E5%88%B0Gitlab%E4%BB%93%E5%BA%93"><span class="nav-number">4.3.</span> <span class="nav-text">将项目提交到Gitlab仓库</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

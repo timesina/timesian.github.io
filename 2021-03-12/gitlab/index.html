@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"lenstime.tk","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一、Gitlab概述GitLab是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用MIT开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。 该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展">
+  <meta name="description" content="Gitlab概述GitLab是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用MIT开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。 该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展成为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker部署Gitlab">
 <meta property="og:url" content="http://lenstime.tk/2021-03-12/gitlab/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="一、Gitlab概述GitLab是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用MIT开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。 该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展">
+<meta property="og:description" content="Gitlab概述GitLab是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用MIT开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。 该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展成为">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://lenstime.tk/img/GitLab_logo.svg.png">
 <meta property="og:image" content="http://lenstime.tk/img/20210312143806.png">
 <meta property="og:image" content="http://lenstime.tk/img/20210312152943.png">
 <meta property="article:published_time" content="2021-03-12T05:22:37.000Z">
-<meta property="article:modified_time" content="2021-03-12T07:30:43.138Z">
+<meta property="article:modified_time" content="2021-03-12T08:29:27.085Z">
 <meta property="article:author" content="Lens">
 <meta property="article:tag" content="Gitlab">
 <meta property="article:tag" content="Docker">
@@ -181,7 +181,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-12 13:22:37 / Modified: 15:30:43" itemprop="dateCreated datePublished" datetime="2021-03-12T13:22:37+08:00">2021-03-12</time>
+              <time title="Created: 2021-03-12 13:22:37 / Modified: 16:29:27" itemprop="dateCreated datePublished" datetime="2021-03-12T13:22:37+08:00">2021-03-12</time>
             </span>
 
           
@@ -211,14 +211,14 @@
       
         <img src="/img/GitLab_logo.svg.png" width="30%" height="30%">
 
-<h2 id="一、Gitlab概述"><a href="#一、Gitlab概述" class="headerlink" title="一、Gitlab概述"></a>一、Gitlab概述</h2><p><a target="_blank" rel="noopener" href="https://about.gitlab.com">GitLab</a>是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。</p>
+<h2 id="Gitlab概述"><a href="#Gitlab概述" class="headerlink" title="Gitlab概述"></a>Gitlab概述</h2><p><a target="_blank" rel="noopener" href="https://about.gitlab.com">GitLab</a>是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。</p>
 <p>该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展成为一个涵盖软件开发生命周期的集成解决方案，然后发展到整个DevOps生命周期。目前的技术包括Go、Ruby on Rails和Vue.js。</p>
 <span id="more"></span>
 
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.gitlab.com">Gitlab官方文档</a>，建议有能力的可以阅读官方文档</p>
 </blockquote>
-<h2 id="二、Gitlab安装"><a href="#二、Gitlab安装" class="headerlink" title="二、Gitlab安装"></a>二、Gitlab安装</h2><p>拉取gitlab镜像 </p>
+<h2 id="Gitlab安装"><a href="#Gitlab安装" class="headerlink" title="Gitlab安装"></a>Gitlab安装</h2><p>拉取gitlab镜像 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-ce:latest <span class="comment">#社区版</span></span><br></pre></td></tr></table></figure>
 
 <p>运行gitlab镜像</p>
@@ -227,7 +227,7 @@
 <p>按上面的方式，gitlab容器运行没问题，但在gitlab上创建项目的时候，生成项目的URL访问地址是按容器的hostname来生成的，也就是容器的id。作为gitlab服务器，我们需要一个固定的URL访问地址，于是需要配置gitlab.rb（宿主机路径：/home/gitlab/config/gitlab.rb）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab.rb文件内容默认全是注释</span></span><br><span class="line">vi /home/gitlab/config/gitlab.rb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置http协议所使用的访问地址,不加端口号默认为80</span></span><br><span class="line">external_url <span class="string">&#x27;http://192.168.1.31&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置ssh协议所使用的访问地址和端口</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_ssh_host&#x27;</span>] = <span class="string">&#x27;192.168.1.31&#x27;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_shell_ssh_port&#x27;</span>] = 8001 <span class="comment"># 此端口是run时80端口映射的8001端口</span></span><br><span class="line">:wq <span class="comment">#保存配置文件并退出</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启gitlab容器</span></span><br><span class="line">docker restart gitlab</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、创建项目"><a href="#三、创建项目" class="headerlink" title="三、创建项目"></a>三、创建项目</h2><p>浏览器输入<a target="_blank" rel="noopener" href="http://192.168.1.31:8001">http://192.168.1.31:8001</a>, 第一次进入要设置好root用户密码<br><img src="/img/20210312143806.png" alt=""></p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>浏览器输入<a target="_blank" rel="noopener" href="http://192.168.1.31:8001">http://192.168.1.31:8001</a>, 第一次进入要设置好root用户密码<br><img src="/img/20210312143806.png" alt=""></p>
 <p>填写项目信息<br><img src="/img/20210312152943.png" alt=""></p>
 
     </div>
@@ -320,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Gitlab%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、Gitlab概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Gitlab%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">二、Gitlab安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">三、创建项目</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitlab%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Gitlab概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitlab%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Gitlab安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">创建项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

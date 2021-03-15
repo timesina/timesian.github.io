@@ -169,10 +169,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-12 15:50:22 / Modified: 16:23:59" itemprop="dateCreated datePublished" datetime="2021-03-12T15:50:22+08:00">2021-03-12</time>
+              <time title="Created: 2021-03-12 15:50:22" itemprop="dateCreated datePublished" datetime="2021-03-12T15:50:22+08:00">2021-03-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 15:10:20" itemprop="dateModified" datetime="2021-03-15T15:10:20+08:00">2021-03-15</time>
+              </span>
 
           
   
@@ -199,8 +205,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、Gitlab-Runner概述"><a href="#一、Gitlab-Runner概述" class="headerlink" title="一、Gitlab-Runner概述"></a>一、Gitlab-Runner概述</h2><p>GitLab内建了持续集成，可以让你运行大量的软件发布任务。典型的任务例如构建、运行测试等等。这些任务的运行工具称为 —— GitLab Runner。GitLab Runner是开源的，用Go编写。它可以作为一个二进制文件运行；不需要特定于语言的要求。可以用来运行 YAML 文件。</p>
-
+          <h2 id="Gitlab-Runner概述"><a href="#Gitlab-Runner概述" class="headerlink" title="Gitlab-Runner概述"></a>Gitlab-Runner概述</h2><p>1、GitLab-CI<br> GitLab-CI就是一套配合GitLab使用的持续集成系统（当然，还有其它的持续集成系统，同样可以配合GitLab使用，比如Jenkins）。而且GitLab8.0以后的版本是默认集成了GitLab-CI并且默认启用的。<br>2、GitLab-Runner<br> GitLab-Runner是配合GitLab-CI进行使用的。一般地，GitLab里面的每一个工程都会定义一个属于这个工程的软件集成脚本，用来自动化地完成一些软件集成工作。当这个工程的仓库代码发生变动时，比如有人push了代码，GitLab就会将这个变动通知GitLab-CI。这时GitLab-CI会找出与这个工程相关联的Runner，并通知这些Runner把代码更新到本地并执行预定义好的执行脚本。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021-03-12/gitlab-runner/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -244,7 +257,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-12 13:22:37 / Modified: 15:30:43" itemprop="dateCreated datePublished" datetime="2021-03-12T13:22:37+08:00">2021-03-12</time>
+              <time title="Created: 2021-03-12 13:22:37 / Modified: 16:29:27" itemprop="dateCreated datePublished" datetime="2021-03-12T13:22:37+08:00">2021-03-12</time>
             </span>
 
           
@@ -274,7 +287,7 @@
       
           <img src="/img/GitLab_logo.svg.png" width="30%" height="30%">
 
-<h2 id="一、Gitlab概述"><a href="#一、Gitlab概述" class="headerlink" title="一、Gitlab概述"></a>一、Gitlab概述</h2><p><a target="_blank" rel="noopener" href="https://about.gitlab.com">GitLab</a>是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。</p>
+<h2 id="Gitlab概述"><a href="#Gitlab概述" class="headerlink" title="Gitlab概述"></a>Gitlab概述</h2><p><a target="_blank" rel="noopener" href="https://about.gitlab.com">GitLab</a>是一个基于Web的 DevOps的生命周期工具，使用Git作为代码管理，提供问题跟踪、持续集成和部署功能，使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>开源许可，由GitLab公司开发的软件被创造乌克兰开发商Dmitriy Zaporozhets和Valery Sizov。</p>
 <p>该代码最初是用Ruby编写的，后来用Go重写了一些部分，最初是作为一个源代码管理解决方案，在软件开发团队中进行协作。后来发展成为一个涵盖软件开发生命周期的集成解决方案，然后发展到整个DevOps生命周期。目前的技术包括Go、Ruby on Rails和Vue.js。</p>
           <!--noindex-->
             <div class="post-button">
@@ -333,7 +346,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 15:27:24" itemprop="dateModified" datetime="2021-03-12T15:27:24+08:00">2021-03-12</time>
+                <time title="Modified: 2021-03-12 17:41:16" itemprop="dateModified" datetime="2021-03-12T17:41:16+08:00">2021-03-12</time>
               </span>
 
           
@@ -361,7 +374,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、Docker概述"><a href="#一、Docker概述" class="headerlink" title="一、Docker概述"></a>一、Docker概述</h2><p><img align="left" width="300px" src="/img/202103111.png"/> Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p>
+          <h2 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h2><p><img align="left" width="300px" src="/img/202103111.png"/> Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p>
 <p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
 <p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
           <!--noindex-->
